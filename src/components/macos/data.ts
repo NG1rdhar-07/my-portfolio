@@ -11,7 +11,7 @@ export const profile = {
     leetcode: "https://leetcode.com/u/NG1rdhar_07/",
     twitter: "https://x.com/NoorGirdhar786",
     resume:
-      "https://drive.google.com/file/d/1yEd9K0Axl0VNp3RE9SRz8mEElKrnE1Sq/view?usp=sharing",
+      "https://drive.google.com/file/d/1yEd9K0Axl0VNp3RE9SRz8mEElKrnE1Sq/view?usp=drive_link",
   },
 };
 
