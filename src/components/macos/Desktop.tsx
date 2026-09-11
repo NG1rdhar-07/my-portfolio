@@ -46,11 +46,38 @@ function DesktopShell() {
   const [showFullscreenPrompt, setShowFullscreenPrompt] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const seen = window.sessionStorage.getItem("portfolio-fullscreen-prompt-seen");
-    if (seen) return;
-    const t = window.setTimeout(() => setShowFullscreenPrompt(true), 150);
-    return () => window.clearTimeout(t);
+    if (typeof window === "undefined" || typeof document === "undefined") return;
+    const isFullscreen = () =>
+      document.fullscreenElement !== null ||
+      Boolean(
+        (document as Document & { webkitFullscreenElement?: Element | null })
+          .webkitFullscreenElement,
+      ) ||
+      Boolean(
+        (document as Document & { mozFullScreenElement?: Element | null }).mozFullScreenElement,
+      ) ||
+      Boolean(
+        (document as Document & { msFullscreenElement?: Element | null }).msFullscreenElement,
+      );
+    const check = () => {
+      if (!isFullscreen()) {
+        setShowFullscreenPrompt(true);
+      } else {
+        setShowFullscreenPrompt(false);
+      }
+    };
+    const t = window.setTimeout(check, 150);
+    document.addEventListener("fullscreenchange", check);
+    (
+      document as Document & { onwebkitfullscreenchange?: ((e: Event) => void) | null }
+    ).addEventListener?.("webkitfullscreenchange", check);
+    return () => {
+      window.clearTimeout(t);
+      document.removeEventListener("fullscreenchange", check);
+      (
+        document as Document & { onwebkitfullscreenchange?: ((e: Event) => void) | null }
+      ).removeEventListener?.("webkitfullscreenchange", check);
+    };
   }, []);
 
   const enterFullscreen = async () => {
@@ -65,12 +92,6 @@ function DesktopShell() {
   };
 
   const dismissFullscreenPrompt = (accepted: boolean) => {
-    if (typeof window !== "undefined") {
-      window.sessionStorage.setItem(
-        "portfolio-fullscreen-prompt-seen",
-        accepted ? "yes" : "dismissed",
-      );
-    }
     setShowFullscreenPrompt(false);
     if (accepted) {
       enterFullscreen();
