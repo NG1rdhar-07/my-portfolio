@@ -108,7 +108,9 @@ function ProjectDetail({ p, onBack }: { p: Project; onBack: () => void }) {
           </button>
         ))}
       </div>
-      <p className="mt-2 text-[11px] text-white/40">Links open in your actual browser after confirmation.</p>
+      <p className="mt-2 text-[11px] text-white/40">
+        Links open in your actual browser after confirmation.
+      </p>
     </div>
   );
 }

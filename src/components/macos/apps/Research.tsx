@@ -52,10 +52,9 @@ export function ResearchApp() {
             2. Framework
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-neutral-800">
-            The framework has three components: (a) a lightweight fingerprinting module, (b) a
-            proof generator that binds fingerprints to owner identity via a Groth16 circuit, and
-            (c) an on-chain or off-chain verifier that authenticates ownership in under 15ms per
-            image.
+            The framework has three components: (a) a lightweight fingerprinting module, (b) a proof
+            generator that binds fingerprints to owner identity via a Groth16 circuit, and (c) an
+            on-chain or off-chain verifier that authenticates ownership in under 15ms per image.
           </p>
         </div>
       </div>

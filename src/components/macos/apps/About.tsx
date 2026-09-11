@@ -93,7 +93,10 @@ export function AboutApp() {
         <h3 className="mt-6 text-sm font-semibold text-white/90">Education</h3>
         <div className="mt-2 space-y-2">
           {education.map((ed) => (
-            <div key={ed.school} className="flex items-baseline justify-between rounded-lg bg-white/5 p-3">
+            <div
+              key={ed.school}
+              className="flex items-baseline justify-between rounded-lg bg-white/5 p-3"
+            >
               <div>
                 <div className="font-medium text-white">{ed.school}</div>
                 <div className="text-xs text-white/70">{ed.degree}</div>
@@ -111,7 +114,10 @@ export function AboutApp() {
           {certifications.map((c) => (
             <li key={c.title}>
               <a href={c.url} target="_blank" rel="noreferrer" className="hover:underline">
-                {c.title} — <span className="text-white/60">{c.issuer} · {c.year}</span>
+                {c.title} —{" "}
+                <span className="text-white/60">
+                  {c.issuer} · {c.year}
+                </span>
               </a>
             </li>
           ))}

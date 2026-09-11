@@ -41,13 +41,32 @@ function detectExternalOnly(
   return null;
 }
 
-
 function StartPage() {
   const items = [
-    { label: "GitHub", url: profile.links.github, icon: <Github />, color: "from-zinc-800 to-black" },
-    { label: "LinkedIn", url: profile.links.linkedin, icon: <Linkedin />, color: "from-sky-600 to-blue-700" },
-    { label: "LeetCode", url: profile.links.leetcode, icon: <Code2 />, color: "from-orange-500 to-yellow-500" },
-    { label: "X / Twitter", url: profile.links.twitter, icon: <Twitter />, color: "from-slate-800 to-black" },
+    {
+      label: "GitHub",
+      url: profile.links.github,
+      icon: <Github />,
+      color: "from-zinc-800 to-black",
+    },
+    {
+      label: "LinkedIn",
+      url: profile.links.linkedin,
+      icon: <Linkedin />,
+      color: "from-sky-600 to-blue-700",
+    },
+    {
+      label: "LeetCode",
+      url: profile.links.leetcode,
+      icon: <Code2 />,
+      color: "from-orange-500 to-yellow-500",
+    },
+    {
+      label: "X / Twitter",
+      url: profile.links.twitter,
+      icon: <Twitter />,
+      color: "from-slate-800 to-black",
+    },
   ];
   return (
     <div className="p-8">
@@ -137,10 +156,20 @@ export function SafariApp({ win }: { win?: WindowState }) {
   return (
     <div className="flex h-full flex-col">
       <div className="flex items-center gap-2 border-b border-white/10 bg-black/30 px-3 py-1.5">
-        <button onClick={back} disabled={index === 0} className="rounded p-1 hover:bg-white/10 disabled:opacity-30" aria-label="Back">
+        <button
+          onClick={back}
+          disabled={index === 0}
+          className="rounded p-1 hover:bg-white/10 disabled:opacity-30"
+          aria-label="Back"
+        >
           <ArrowLeft size={14} />
         </button>
-        <button onClick={forward} disabled={index >= history.length - 1} className="rounded p-1 hover:bg-white/10 disabled:opacity-30" aria-label="Forward">
+        <button
+          onClick={forward}
+          disabled={index >= history.length - 1}
+          className="rounded p-1 hover:bg-white/10 disabled:opacity-30"
+          aria-label="Forward"
+        >
           <ArrowRight size={14} />
         </button>
         <button onClick={reload} className="rounded p-1 hover:bg-white/10" aria-label="Reload">
@@ -182,4 +211,3 @@ export function SafariApp({ win }: { win?: WindowState }) {
     </div>
   );
 }
-

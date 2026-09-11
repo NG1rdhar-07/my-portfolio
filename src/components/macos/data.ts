@@ -10,22 +10,13 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/noor-999b9b202/",
     leetcode: "https://leetcode.com/u/NG1rdhar_07/",
     twitter: "https://x.com/NoorGirdhar786",
-    resume:
-      "https://drive.google.com/file/d/1t8aBsuVM91HmVTyEmh54ETRkIuWwQMpw/view?usp=sharing",
+    resume: "https://drive.google.com/file/d/1t8aBsuVM91HmVTyEmh54ETRkIuWwQMpw/view?usp=sharing",
   },
 };
 
 export const skills = {
   Languages: ["C++", "Python", "JavaScript", "SQL"],
-  "Frameworks & Tools": [
-    "React",
-    "Node.js",
-    "FastAPI",
-    "Postman",
-    "ChromaDB",
-    "Git",
-    "Docker",
-  ],
+  "Frameworks & Tools": ["React", "Node.js", "FastAPI", "Postman", "ChromaDB", "Git", "Docker"],
   Concepts: ["DSA", "Algorithms", "OOP", "System Design", "ML/DL", "DBMS"],
   Databases: ["MongoDB", "PostgreSQL", "MySQL"],
 };

@@ -1,6 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, User, FolderKanban, Terminal, Globe, FileText, Mail, BookOpenText } from "lucide-react";
+import {
+  Search,
+  User,
+  FolderKanban,
+  Terminal,
+  Globe,
+  FileText,
+  Mail,
+  BookOpenText,
+} from "lucide-react";
 import { useWM } from "./WindowManager";
 import type { AppId } from "./types";
 import { projects, skills } from "./data";
@@ -28,13 +37,55 @@ export function Spotlight({ open, onClose }: { open: boolean; onClose: () => voi
 
   const results = useMemo<Result[]>(() => {
     const base: Result[] = [
-      { id: "about", label: "About Noor", category: "Application", appId: "about", icon: <User size={16} /> },
-      { id: "projects", label: "Projects", category: "Application", appId: "projects", icon: <FolderKanban size={16} /> },
-      { id: "terminal", label: "Terminal", category: "Application", appId: "terminal", icon: <Terminal size={16} /> },
-      { id: "safari", label: "Safari — Links", category: "Application", appId: "safari", icon: <Globe size={16} /> },
-      { id: "resume", label: "Resume.pdf", category: "Document", appId: "resume", icon: <FileText size={16} /> },
-      { id: "research", label: "ZKP-Guard — Research Paper", category: "Document", appId: "research", icon: <BookOpenText size={16} /> },
-      { id: "mail", label: "Contact Noor", category: "Application", appId: "mail", icon: <Mail size={16} /> },
+      {
+        id: "about",
+        label: "About Noor",
+        category: "Application",
+        appId: "about",
+        icon: <User size={16} />,
+      },
+      {
+        id: "projects",
+        label: "Projects",
+        category: "Application",
+        appId: "projects",
+        icon: <FolderKanban size={16} />,
+      },
+      {
+        id: "terminal",
+        label: "Terminal",
+        category: "Application",
+        appId: "terminal",
+        icon: <Terminal size={16} />,
+      },
+      {
+        id: "safari",
+        label: "Safari — Links",
+        category: "Application",
+        appId: "safari",
+        icon: <Globe size={16} />,
+      },
+      {
+        id: "resume",
+        label: "Resume.pdf",
+        category: "Document",
+        appId: "resume",
+        icon: <FileText size={16} />,
+      },
+      {
+        id: "research",
+        label: "ZKP-Guard — Research Paper",
+        category: "Document",
+        appId: "research",
+        icon: <BookOpenText size={16} />,
+      },
+      {
+        id: "mail",
+        label: "Contact Noor",
+        category: "Application",
+        appId: "mail",
+        icon: <Mail size={16} />,
+      },
       ...projects.map<Result>((p) => ({
         id: `proj-${p.id}`,
         label: p.name,
@@ -56,7 +107,9 @@ export function Spotlight({ open, onClose }: { open: boolean; onClose: () => voi
     if (!q.trim()) return base.slice(0, 8);
     const needle = q.toLowerCase();
     return base
-      .filter((r) => r.label.toLowerCase().includes(needle) || r.category.toLowerCase().includes(needle))
+      .filter(
+        (r) => r.label.toLowerCase().includes(needle) || r.category.toLowerCase().includes(needle),
+      )
       .slice(0, 8);
   }, [q]);
 

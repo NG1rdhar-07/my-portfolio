@@ -60,7 +60,11 @@ export function TerminalApp() {
         experience.forEach((e) => out.push(`${e.role} @ ${e.org}  (${e.period})`));
         break;
       case "research":
-        out.push(research.title, `${research.authors.join(", ")} — ${research.venue}`, research.publisher);
+        out.push(
+          research.title,
+          `${research.authors.join(", ")} — ${research.venue}`,
+          research.publisher,
+        );
         break;
       case "contact":
         out.push(`Email: ${profile.email}`, 'Or run "open mail".');
@@ -71,7 +75,15 @@ export function TerminalApp() {
         break;
       case "open": {
         const app = rest[0];
-        const known = ["about", "projects", "safari", "resume", "mail", "research", "terminal"] as const;
+        const known = [
+          "about",
+          "projects",
+          "safari",
+          "resume",
+          "mail",
+          "research",
+          "terminal",
+        ] as const;
         if (known.includes(app as (typeof known)[number])) {
           open(app as (typeof known)[number]);
           out.push(`Opening ${app}…`);

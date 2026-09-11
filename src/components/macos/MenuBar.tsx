@@ -33,18 +33,13 @@ export function MenuBar(_: { onSpotlight?: () => void }) {
   const menuItems: { label: string; onClick: () => void }[] = [
     {
       label: "Resume",
-      onClick: () =>
-        launch("safari", { url: profile.links.resume }, "Resume — Safari"),
+      onClick: () => launch("safari", { url: profile.links.resume }, "Resume — Safari"),
     },
     { label: "Terminal", onClick: () => launch("terminal") },
     {
       label: "Old Portfolio",
       onClick: () =>
-        launch(
-          "safari",
-          { url: "https://the-noor-node.vercel.app/" },
-          "old-portfolio — Safari",
-        ),
+        launch("safari", { url: "https://the-noor-node.vercel.app/" }, "old-portfolio — Safari"),
     },
   ];
 
@@ -64,18 +59,10 @@ export function MenuBar(_: { onSpotlight?: () => void }) {
         ))}
       </div>
       <div className="flex items-center gap-3 opacity-90">
-        <button
-          onClick={() => {}}
-          className="rounded p-0.5 hover:bg-white/10"
-          aria-label="Battery"
-        >
+        <button onClick={() => {}} className="rounded p-0.5 hover:bg-white/10" aria-label="Battery">
           <Battery size={16} />
         </button>
-        <button
-          onClick={() => {}}
-          className="rounded p-0.5 hover:bg-white/10"
-          aria-label="Wi-Fi"
-        >
+        <button onClick={() => {}} className="rounded p-0.5 hover:bg-white/10" aria-label="Wi-Fi">
           <Wifi size={14} />
         </button>
         <span className="tabular-nums">{time}</span>

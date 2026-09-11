@@ -46,25 +46,31 @@ function DesktopShell() {
   const [showFullscreenPrompt, setShowFullscreenPrompt] = useState(false);
 
   useEffect(() => {
-    if (locked) return;
-    const seen = localStorage.getItem("fullscreen-prompt-v2");
+    if (typeof window === "undefined") return;
+    const seen = window.sessionStorage.getItem("portfolio-fullscreen-prompt-seen");
     if (seen) return;
-    const t = setTimeout(() => setShowFullscreenPrompt(true), 900);
-    return () => clearTimeout(t);
-  }, [locked]);
+    const t = window.setTimeout(() => setShowFullscreenPrompt(true), 150);
+    return () => window.clearTimeout(t);
+  }, []);
 
   const enterFullscreen = async () => {
     try {
       const el = document.documentElement;
-      if (el.requestFullscreen) {
+      if (el && typeof el.requestFullscreen === "function") {
         await el.requestFullscreen();
       }
-    } catch {
+    } catch (_e) {
+      void 0;
     }
   };
 
   const dismissFullscreenPrompt = (accepted: boolean) => {
-    localStorage.setItem("fullscreen-prompt-v2", accepted ? "yes" : "dismissed");
+    if (typeof window !== "undefined") {
+      window.sessionStorage.setItem(
+        "portfolio-fullscreen-prompt-seen",
+        accepted ? "yes" : "dismissed",
+      );
+    }
     setShowFullscreenPrompt(false);
     if (accepted) {
       enterFullscreen();
@@ -97,10 +103,11 @@ function DesktopShell() {
             "linear-gradient(180deg, oklch(0.22 0.06 280) 0%, oklch(0.12 0.05 270) 100%)",
         }}
       />
-      <div aria-hidden className="absolute inset-0 opacity-[0.08] mix-blend-overlay"
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-[0.08] mix-blend-overlay"
         style={{
-          backgroundImage:
-            "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)",
           backgroundSize: "3px 3px",
         }}
       />
@@ -138,7 +145,7 @@ function DesktopShell() {
       <AnimatePresence>
         {showFullscreenPrompt && (
           <motion.div
-            className="fixed inset-0 z-[10002] grid place-items-center bg-black/40 backdrop-blur-sm"
+            className="fixed inset-0 z-[10005] grid place-items-center bg-black/45 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -151,7 +158,7 @@ function DesktopShell() {
               className="w-[380px] overflow-hidden rounded-2xl border border-white/15 bg-zinc-900/90 text-white shadow-2xl backdrop-blur-2xl"
             >
               <div className="px-6 pt-5 text-center">
-                <div className="text-[15px] font-semibold">
+                <div className="text-[15px] font-semibold leading-snug">
                   Would you like to open in full screen mode for better experience
                 </div>
                 <div className="mt-2 text-xs text-white/60">

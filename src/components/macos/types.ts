@@ -1,14 +1,7 @@
 import type { ReactNode } from "react";
 
 export type AppId =
-  | "about"
-  | "projects"
-  | "terminal"
-  | "safari"
-  | "resume"
-  | "mail"
-  | "research"
-  | "video";
+  "about" | "projects" | "terminal" | "safari" | "resume" | "mail" | "research" | "video";
 
 export type WindowState = {
   id: string;

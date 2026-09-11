@@ -78,17 +78,37 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Noor - Aspiring Software Engineer & AI Developer" },
-      { name: "description", content: "An interactive macOS-style portfolio- Noor, a final-year LNMIIT student building GenAI apps, full-stack systems, and published research (ZKP-Guard, ICTIS 2026)." },
+      {
+        name: "description",
+        content:
+          "An interactive macOS-style portfolio- Noor, a final-year LNMIIT student building GenAI apps, full-stack systems, and published research (ZKP-Guard, ICTIS 2026).",
+      },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "Noor - Aspiring Software Engineer & AI Developer" },
-      { property: "og:description", content: "An interactive macOS-style portfolio- Noor, a final-year LNMIIT student building GenAI apps, full-stack systems, and published research (ZKP-Guard, ICTIS 2026)." },
+      {
+        property: "og:description",
+        content:
+          "An interactive macOS-style portfolio- Noor, a final-year LNMIIT student building GenAI apps, full-stack systems, and published research (ZKP-Guard, ICTIS 2026).",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Noor - Aspiring Software Engineer & AI Developer" },
-      { name: "twitter:description", content: "An interactive macOS-style portfolio- Noor, a final-year LNMIIT student building GenAI apps, full-stack systems, and published research (ZKP-Guard, ICTIS 2026)." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/fe9bca5d-b873-4e15-b6b0-236428e01336" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/fe9bca5d-b873-4e15-b6b0-236428e01336" },
+      {
+        name: "twitter:description",
+        content:
+          "An interactive macOS-style portfolio- Noor, a final-year LNMIIT student building GenAI apps, full-stack systems, and published research (ZKP-Guard, ICTIS 2026).",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/fe9bca5d-b873-4e15-b6b0-236428e01336",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/fe9bca5d-b873-4e15-b6b0-236428e01336",
+      },
     ],
     links: [
       {

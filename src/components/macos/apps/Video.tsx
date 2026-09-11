@@ -41,11 +41,20 @@ export function VideoApp({ win }: { win: WindowState }) {
           {playing ? <Pause size={14} /> : <Play size={14} />}
         </button>
         <div className="relative flex-1 h-1 rounded-full bg-white/15">
-          <div className="absolute inset-y-0 left-0 rounded-full bg-white/90" style={{ width: `${progress}%` }} />
+          <div
+            className="absolute inset-y-0 left-0 rounded-full bg-white/90"
+            style={{ width: `${progress}%` }}
+          />
         </div>
         <span className="tabular-nums text-white/70">
-          {Math.floor(progress * 0.6).toString().padStart(2, "0")}:
-          {Math.floor(((progress * 0.6) % 1) * 60).toString().padStart(2, "0")} / 01:00
+          {Math.floor(progress * 0.6)
+            .toString()
+            .padStart(2, "0")}
+          :
+          {Math.floor(((progress * 0.6) % 1) * 60)
+            .toString()
+            .padStart(2, "0")}{" "}
+          / 01:00
         </span>
         <button className="rounded p-1 hover:bg-white/10">
           <Maximize2 size={14} />

@@ -40,7 +40,6 @@ export function SystemDialogHost() {
     setPending(null);
   };
 
-
   return (
     <AnimatePresence>
       {pending && (
@@ -58,16 +57,9 @@ export function SystemDialogHost() {
             className="w-[380px] overflow-hidden rounded-2xl border border-white/15 bg-zinc-900/90 text-white shadow-2xl backdrop-blur-2xl"
           >
             <div className="px-6 pt-5 text-center">
-              <div className="text-[15px] font-semibold">
-                "System" would like to open a new tab
-              </div>
-              <div className="mt-2 line-clamp-2 break-all text-xs text-white/60">
-                {pending.url}
-              </div>
-              <div className="mt-1 text-[11px] text-white/40">
-                Opens in your real browser.
-              </div>
-
+              <div className="text-[15px] font-semibold">"System" would like to open a new tab</div>
+              <div className="mt-2 line-clamp-2 break-all text-xs text-white/60">{pending.url}</div>
+              <div className="mt-1 text-[11px] text-white/40">Opens in your real browser.</div>
             </div>
             <div className="mt-5 grid grid-cols-2 border-t border-white/10">
               <button

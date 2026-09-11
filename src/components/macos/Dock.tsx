@@ -1,11 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform, type MotionValue } from "framer-motion";
 import { useRef } from "react";
-import {
-  FolderKanban,
-  Terminal as TerminalIcon,
-  Globe,
-  FileText,
-} from "lucide-react";
+import { FolderKanban, Terminal as TerminalIcon, Globe, FileText } from "lucide-react";
 import { useWM } from "./WindowManager";
 import { profile } from "./data";
 import type { AppId } from "./types";
@@ -18,8 +13,18 @@ type DockItem = {
 };
 
 const items: DockItem[] = [
-  { id: "projects", label: "Projects", icon: <FolderKanban />, gradient: "from-sky-300 to-blue-500" },
-  { id: "terminal", label: "Terminal", icon: <TerminalIcon />, gradient: "from-zinc-700 to-zinc-900" },
+  {
+    id: "projects",
+    label: "Projects",
+    icon: <FolderKanban />,
+    gradient: "from-sky-300 to-blue-500",
+  },
+  {
+    id: "terminal",
+    label: "Terminal",
+    icon: <TerminalIcon />,
+    gradient: "from-zinc-700 to-zinc-900",
+  },
   { id: "safari", label: "Safari", icon: <Globe />, gradient: "from-cyan-300 to-blue-500" },
   { id: "resume", label: "Resume", icon: <FileText />, gradient: "from-slate-100 to-slate-300" },
 ];
@@ -34,7 +39,9 @@ export function Dock() {
         onMouseMove={(e) => mouseX.set(e.clientX)}
         onMouseLeave={() => mouseX.set(Infinity)}
         className="pointer-events-auto flex items-end gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-2 backdrop-blur-2xl"
-        style={{ boxShadow: "0 20px 40px -20px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.25)" }}
+        style={{
+          boxShadow: "0 20px 40px -20px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.25)",
+        }}
       >
         {items.map((it) => (
           <DockIcon
@@ -97,9 +104,7 @@ function DockIcon({
         </span>
         <span className="[&>svg]:h-1/2 [&>svg]:w-1/2 drop-shadow">{item.icon}</span>
       </motion.button>
-      <span
-        className={`mt-1 h-1 w-1 rounded-full ${isOpen ? "bg-white/90" : "bg-transparent"}`}
-      />
+      <span className={`mt-1 h-1 w-1 rounded-full ${isOpen ? "bg-white/90" : "bg-transparent"}`} />
     </div>
   );
 }
