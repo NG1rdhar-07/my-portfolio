@@ -11,7 +11,7 @@ export const profile = {
     leetcode: "https://leetcode.com/u/NG1rdhar_07/",
     twitter: "https://x.com/NoorGirdhar786",
     resume:
-      "https://drive.google.com/file/d/1yEd9K0Axl0VNp3RE9SRz8mEElKrnE1Sq/view?usp=sharing",
+      "https://drive.google.com/file/d/1t8aBsuVM91HmVTyEmh54ETRkIuWwQMpw/view?usp=sharing",
   },
 };
 
@@ -62,21 +62,6 @@ export const projects: Project[] = [
         label: "Architecture",
         url: "https://drive.google.com/file/d/1FobCIOPpMVxiBZDncBltPntsH-CLtlwk/view?usp=sharing",
       },
-    ],
-  },
-  {
-    id: "rag",
-    name: "Hybrid RAG Search Engine",
-    tagline: "BM25 + Vector search with RAGAS evaluation.",
-    stack: ["Python", "ChromaDB", "React", "FastAPI", "RAGAS"],
-    features: [
-      "Hybrid retrieval combining BM25 keyword search and vector similarity via Reciprocal Rank Fusion",
-      "Evaluated with RAGAS, achieving strong faithfulness scores to quantify and reduce LLM hallucination",
-      "Async FastAPI REST backend with Pydantic validation and a React frontend exposing live retrieval traces",
-    ],
-    architecture: "Ingest → BM25 + Chroma → RRF fusion → Rerank → Answer + trace",
-    links: [
-      { label: "GitHub", url: "https://github.com/NG1rdhar-07/hybrid-rag-search-engine" },
     ],
   },
   {

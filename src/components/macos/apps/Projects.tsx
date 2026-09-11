@@ -25,7 +25,7 @@ export function ProjectsApp({ win }: { win: WindowState }) {
       <div className="flex-1 overflow-y-auto p-4">
         {!project ? (
           <>
-            <div className="mb-3 text-xs text-white/50">3 items</div>
+            <div className="mb-3 text-xs text-white/50">2 items</div>
             <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
               {projects.map((p) => (
                 <button

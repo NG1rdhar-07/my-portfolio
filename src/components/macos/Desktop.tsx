@@ -43,6 +43,33 @@ function DesktopShell() {
   const { windows } = useWM();
   const [spot, setSpot] = useState(false);
   const [locked, setLocked] = useState(true);
+  const [showFullscreenPrompt, setShowFullscreenPrompt] = useState(false);
+
+  useEffect(() => {
+    const seen = localStorage.getItem("fs-prompt-seen");
+    if (!seen) {
+      const t = setTimeout(() => setShowFullscreenPrompt(true), 1200);
+      return () => clearTimeout(t);
+    }
+  }, []);
+
+  const enterFullscreen = async () => {
+    try {
+      const el = document.documentElement;
+      if (el.requestFullscreen) {
+        await el.requestFullscreen();
+      }
+    } catch {
+    }
+  };
+
+  const dismissFullscreenPrompt = (accepted: boolean) => {
+    localStorage.setItem("fs-prompt-seen", "1");
+    setShowFullscreenPrompt(false);
+    if (accepted) {
+      enterFullscreen();
+    }
+  };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -107,6 +134,48 @@ function DesktopShell() {
       </motion.div>
 
       <SystemDialogHost />
+
+      <AnimatePresence>
+        {showFullscreenPrompt && (
+          <motion.div
+            className="fixed inset-0 z-[10000] grid place-items-center bg-black/40 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 10 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ type: "spring", damping: 22, stiffness: 260 }}
+              className="w-[380px] overflow-hidden rounded-2xl border border-white/15 bg-zinc-900/90 text-white shadow-2xl backdrop-blur-2xl"
+            >
+              <div className="px-6 pt-5 text-center">
+                <div className="text-[15px] font-semibold">
+                  Would you like to open in full screen mode for better experience
+                </div>
+                <div className="mt-2 text-xs text-white/60">
+                  Full screen mode gives you a more immersive macOS experience.
+                </div>
+              </div>
+              <div className="mt-5 grid grid-cols-2 border-t border-white/10">
+                <button
+                  onClick={() => dismissFullscreenPrompt(false)}
+                  className="border-r border-white/10 py-2.5 text-sm text-white/80 hover:bg-white/5"
+                >
+                  No
+                </button>
+                <button
+                  onClick={() => dismissFullscreenPrompt(true)}
+                  className="py-2.5 text-sm font-semibold text-sky-400 hover:bg-white/5"
+                >
+                  Yes
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {locked && <LockScreen onUnlock={() => setLocked(false)} />}
