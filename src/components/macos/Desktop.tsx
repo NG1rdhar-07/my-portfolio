@@ -46,12 +46,12 @@ function DesktopShell() {
   const [showFullscreenPrompt, setShowFullscreenPrompt] = useState(false);
 
   useEffect(() => {
-    const seen = localStorage.getItem("fs-prompt-seen");
-    if (!seen) {
-      const t = setTimeout(() => setShowFullscreenPrompt(true), 1200);
-      return () => clearTimeout(t);
-    }
-  }, []);
+    if (locked) return;
+    const seen = localStorage.getItem("fullscreen-prompt-v2");
+    if (seen) return;
+    const t = setTimeout(() => setShowFullscreenPrompt(true), 900);
+    return () => clearTimeout(t);
+  }, [locked]);
 
   const enterFullscreen = async () => {
     try {
@@ -64,7 +64,7 @@ function DesktopShell() {
   };
 
   const dismissFullscreenPrompt = (accepted: boolean) => {
-    localStorage.setItem("fs-prompt-seen", "1");
+    localStorage.setItem("fullscreen-prompt-v2", accepted ? "yes" : "dismissed");
     setShowFullscreenPrompt(false);
     if (accepted) {
       enterFullscreen();
@@ -138,7 +138,7 @@ function DesktopShell() {
       <AnimatePresence>
         {showFullscreenPrompt && (
           <motion.div
-            className="fixed inset-0 z-[10000] grid place-items-center bg-black/40 backdrop-blur-sm"
+            className="fixed inset-0 z-[10002] grid place-items-center bg-black/40 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
