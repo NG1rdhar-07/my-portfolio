@@ -47,18 +47,20 @@ function DesktopShell() {
 
   useEffect(() => {
     if (typeof window === "undefined" || typeof document === "undefined") return;
-    const isFullscreen = () =>
+    const isBrowserFullscreen = () => {
+      const availH = typeof screen !== "undefined" ? (screen.availHeight ?? screen.height) : 0;
+      return (
+        window.innerWidth >= screen.width - 4 &&
+        window.innerHeight >= Math.max(availH, screen.height - 40) - 2
+      );
+    };
+    const isApiFullscreen = () =>
       document.fullscreenElement !== null ||
       Boolean(
         (document as Document & { webkitFullscreenElement?: Element | null })
           .webkitFullscreenElement,
-      ) ||
-      Boolean(
-        (document as Document & { mozFullScreenElement?: Element | null }).mozFullScreenElement,
-      ) ||
-      Boolean(
-        (document as Document & { msFullscreenElement?: Element | null }).msFullscreenElement,
       );
+    const isFullscreen = () => isApiFullscreen() || isBrowserFullscreen();
     const check = () => {
       if (!isFullscreen()) {
         setShowFullscreenPrompt(true);
@@ -66,17 +68,20 @@ function DesktopShell() {
         setShowFullscreenPrompt(false);
       }
     };
+    check();
     const t = window.setTimeout(check, 150);
     document.addEventListener("fullscreenchange", check);
     (
       document as Document & { onwebkitfullscreenchange?: ((e: Event) => void) | null }
     ).addEventListener?.("webkitfullscreenchange", check);
+    window.addEventListener("resize", check);
     return () => {
       window.clearTimeout(t);
       document.removeEventListener("fullscreenchange", check);
       (
         document as Document & { onwebkitfullscreenchange?: ((e: Event) => void) | null }
       ).removeEventListener?.("webkitfullscreenchange", check);
+      window.removeEventListener("resize", check);
     };
   }, []);
 
