@@ -77,7 +77,7 @@ export function Window({ win, children }: { win: WindowState; children: ReactNod
           }}
           onDoubleClick={() => toggleMaximize(win.id)}
         >
-          <div className={`flex items-center ${isMobile ? "gap-3" : "gap-2"}`}>
+          <div className="flex items-center gap-2">
             <button
               aria-label="Close"
               onClick={(e) => {
@@ -85,12 +85,12 @@ export function Window({ win, children }: { win: WindowState; children: ReactNod
                 close(win.id);
               }}
               className={`group grid place-items-center rounded-full bg-[#ff5f57] hover:brightness-110 ${
-                isMobile ? "h-7 w-7" : "h-3 w-3"
+                isMobile ? "h-5 w-5" : "h-3 w-3"
               }`}
             >
               <span
                 className={`hidden text-black/70 group-hover:block ${
-                  isMobile ? "text-sm" : "text-[8px]"
+                  isMobile ? "text-[11px]" : "text-[8px]"
                 }`}
               >
                 ×
@@ -103,12 +103,12 @@ export function Window({ win, children }: { win: WindowState; children: ReactNod
                 minimize(win.id);
               }}
               className={`group grid place-items-center rounded-full bg-[#febc2e] hover:brightness-110 ${
-                isMobile ? "h-7 w-7" : "h-3 w-3"
+                isMobile ? "h-5 w-5" : "h-3 w-3"
               }`}
             >
               <span
                 className={`hidden text-black/70 group-hover:block ${
-                  isMobile ? "text-sm" : "text-[8px]"
+                  isMobile ? "text-[11px]" : "text-[8px]"
                 }`}
               >
                 −
@@ -121,12 +121,12 @@ export function Window({ win, children }: { win: WindowState; children: ReactNod
                 toggleMaximize(win.id);
               }}
               className={`group grid place-items-center rounded-full bg-[#28c840] hover:brightness-110 ${
-                isMobile ? "h-7 w-7" : "h-3 w-3"
+                isMobile ? "h-5 w-5" : "h-3 w-3"
               }`}
             >
               <span
                 className={`hidden text-black/70 group-hover:block ${
-                  isMobile ? "text-sm" : "text-[8px]"
+                  isMobile ? "text-[11px]" : "text-[8px]"
                 }`}
               >
                 +
