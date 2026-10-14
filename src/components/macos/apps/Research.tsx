@@ -60,10 +60,7 @@ export function ResearchApp() {
             </h2>
             <div className="mt-3 space-y-3">
               {research.locks.map((lock) => (
-                <div
-                  key={lock.name}
-                  className="rounded-lg border border-white/10 bg-black/20 p-3"
-                >
+                <div key={lock.name} className="rounded-lg border border-white/10 bg-black/20 p-3">
                   <div className="text-sm font-medium text-emerald-300">{lock.name}</div>
                   <p className="mt-1 text-xs leading-relaxed text-white/75">{lock.detail}</p>
                 </div>

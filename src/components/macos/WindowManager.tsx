@@ -64,12 +64,21 @@ export function WindowManagerProvider({ children }: { children: ReactNode }) {
       idCounter += 1;
       zCounter += 1;
       const id = `${appId}-${idCounter}`;
-      const width = opts?.width ?? def.width;
-      const height = opts?.height ?? def.height;
       const vw = typeof window !== "undefined" ? window.innerWidth : 1200;
       const vh = typeof window !== "undefined" ? window.innerHeight : 800;
-      const x = Math.max(20, Math.round((vw - width) / 2) + (idCounter % 5) * 24);
-      const y = Math.max(40, Math.round((vh - height) / 2) - 20 + (idCounter % 5) * 20);
+      const isMobile = vw < 768;
+      let width = opts?.width ?? def.width;
+      let height = opts?.height ?? def.height;
+      if (isMobile) {
+        width = Math.min(width, vw - 16);
+        height = Math.min(height, vh - 120);
+      }
+      const x = isMobile
+        ? Math.max(8, Math.round((vw - width) / 2))
+        : Math.max(20, Math.round((vw - width) / 2) + (idCounter % 5) * 24);
+      const y = isMobile
+        ? Math.max(36, Math.round((vh - height) / 2) - 20)
+        : Math.max(40, Math.round((vh - height) / 2) - 20 + (idCounter % 5) * 20);
       setFocusedId(id);
       return [
         ...ws,

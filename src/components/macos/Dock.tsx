@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { FolderKanban, Terminal as TerminalIcon, Globe, FileText, BookOpen } from "lucide-react";
 import { useWM } from "./WindowManager";
 import { profile } from "./data";
+import { useIsMobile } from "../../hooks/use-mobile";
 import type { AppId } from "./types";
 
 type DockItem = {
@@ -38,6 +39,7 @@ const items: DockItem[] = [
 export function Dock() {
   const { open, openApps, windows, focus } = useWM();
   const mouseX = useMotionValue<number>(Infinity);
+  const isMobile = useIsMobile();
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-2 z-[9998] flex justify-center">
@@ -55,6 +57,7 @@ export function Dock() {
             item={it}
             mouseX={mouseX}
             isOpen={openApps.has(it.id)}
+            isMobile={isMobile}
             onClick={() => {
               if (it.id === "resume") {
                 open("safari", {
@@ -78,11 +81,13 @@ function DockIcon({
   item,
   mouseX,
   isOpen,
+  isMobile,
   onClick,
 }: {
   item: DockItem;
   mouseX: MotionValue<number>;
   isOpen: boolean;
+  isMobile: boolean;
   onClick: () => void;
 }) {
   const ref = useRef<HTMLButtonElement>(null);
@@ -105,7 +110,11 @@ function DockIcon({
         className={`group relative grid place-items-center rounded-2xl bg-gradient-to-br ${item.gradient} text-white shadow-lg shadow-black/40`}
         aria-label={item.label}
       >
-        <span className="pointer-events-none absolute -top-8 rounded-md bg-black/70 px-2 py-0.5 text-xs text-white opacity-0 shadow group-hover:opacity-100">
+        <span
+          className={`pointer-events-none absolute -top-8 rounded-md bg-black/70 px-2 py-0.5 text-xs text-white shadow sm:opacity-0 sm:group-hover:opacity-100 ${
+            isMobile ? "opacity-100" : "opacity-0"
+          }`}
+        >
           {item.label}
         </span>
         <span className="[&>svg]:h-1/2 [&>svg]:w-1/2 drop-shadow">{item.icon}</span>

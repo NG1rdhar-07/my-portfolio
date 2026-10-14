@@ -64,7 +64,9 @@ export function LockScreen({ onUnlock }: { onUnlock: () => void }) {
           className="mt-16 text-center"
         >
           <div className="text-sm font-medium tracking-wide text-white/80">{date}</div>
-          <div className="mt-1 text-8xl font-thin tabular-nums drop-shadow-lg">{time}</div>
+          <div className="mt-1 text-6xl font-thin tabular-nums drop-shadow-lg sm:text-8xl">
+            {time}
+          </div>
         </motion.div>
 
         <motion.form
@@ -72,10 +74,10 @@ export function LockScreen({ onUnlock }: { onUnlock: () => void }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25 }}
-          className="mt-auto mb-40 flex flex-col items-center"
+          className="mt-auto mb-20 flex flex-col items-center sm:mb-40"
         >
-          <div className="grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br from-sky-400 to-indigo-600 shadow-2xl ring-2 ring-white/30">
-            <User size={44} />
+          <div className="grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-sky-400 to-indigo-600 shadow-2xl ring-2 ring-white/30 sm:h-24 sm:w-24">
+            <User size={36} className="sm:h-11 sm:w-11" />
           </div>
           <div className="mt-3 text-lg font-medium">Noor Portfolio</div>
 

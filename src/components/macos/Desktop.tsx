@@ -16,6 +16,7 @@ import { ResumeApp } from "./apps/Resume";
 import { MailApp } from "./apps/Mail";
 import { ResearchApp } from "./apps/Research";
 import { VideoApp } from "./apps/Video";
+import { useIsMobile } from "../../hooks/use-mobile";
 import type { WindowState } from "./types";
 
 function renderApp(win: WindowState) {
@@ -44,8 +45,10 @@ function DesktopShell() {
   const [spot, setSpot] = useState(false);
   const [locked, setLocked] = useState(true);
   const [showFullscreenPrompt, setShowFullscreenPrompt] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
+    if (isMobile) return;
     if (typeof window === "undefined" || typeof document === "undefined") return;
     const isBrowserFullscreen = () => {
       const availH = typeof screen !== "undefined" ? (screen.availHeight ?? screen.height) : 0;
@@ -83,7 +86,7 @@ function DesktopShell() {
       ).removeEventListener?.("webkitfullscreenchange", check);
       window.removeEventListener("resize", check);
     };
-  }, []);
+  }, [isMobile]);
 
   const enterFullscreen = async () => {
     try {
@@ -161,7 +164,7 @@ function DesktopShell() {
         <Dock />
         <Spotlight open={spot} onClose={() => setSpot(false)} />
 
-        <div className="pointer-events-none fixed bottom-1 left-3 z-[9997] text-[10px] text-white/40">
+        <div className="pointer-events-none fixed bottom-1 left-3 z-[9997] hidden text-[10px] text-white/40 sm:block">
           ⌘K for Spotlight
         </div>
       </motion.div>

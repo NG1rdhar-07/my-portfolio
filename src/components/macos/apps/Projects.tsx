@@ -2,41 +2,48 @@ import { useState } from "react";
 import { Folder, ExternalLink } from "lucide-react";
 import { projects, type Project } from "../data";
 import { confirmOpenExternal } from "../SystemDialog";
+import { useIsMobile } from "../../../hooks/use-mobile";
 import type { WindowState } from "../types";
 
 export function ProjectsApp({ win }: { win: WindowState }) {
   const initial = (win.payload?.projectId as string | undefined) ?? null;
   const [selected, setSelected] = useState<string | null>(initial);
   const project = projects.find((p) => p.id === selected);
+  const isMobile = useIsMobile();
 
   return (
     <div className="flex h-full">
-      <aside className="w-48 shrink-0 border-r border-white/10 bg-black/20 p-2 text-sm">
-        <div className="px-2 pb-2 text-xs uppercase tracking-wide text-white/50">Favorites</div>
+      <aside
+        className={`shrink-0 border-r border-white/10 bg-black/20 p-2 text-sm ${isMobile ? "w-20" : "w-48"}`}
+      >
+        <div className="px-2 pb-2 text-[10px] uppercase tracking-wide text-white/50">Favorites</div>
         {["Desktop", "Documents", "Projects", "Downloads"].map((f) => (
           <div
             key={f}
             className={`flex items-center gap-2 rounded px-2 py-1 ${f === "Projects" ? "bg-white/10" : "text-white/70"}`}
           >
-            <Folder size={14} /> {f}
+            <Folder size={14} /> <span className={isMobile ? "truncate text-[11px]" : ""}>{f}</span>
           </div>
         ))}
       </aside>
       <div className="flex-1 overflow-y-auto p-4">
         {!project ? (
           <>
-            <div className="mb-3 text-xs text-white/50">2 items</div>
-            <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
+            <div className="mb-3 text-xs text-white/50">{projects.length} items</div>
+            <div
+              className={`grid gap-3 sm:gap-4 ${isMobile ? "grid-cols-2" : "grid-cols-3 sm:grid-cols-4"}`}
+            >
               {projects.map((p) => (
                 <button
                   key={p.id}
-                  onDoubleClick={() => setSelected(p.id)}
+                  onDoubleClick={isMobile ? undefined : () => setSelected(p.id)}
+                  onClick={isMobile ? () => setSelected(p.id) : undefined}
                   className="group flex flex-col items-center gap-1 rounded-lg p-3 hover:bg-white/10"
                 >
-                  <div className="grid h-16 w-20 place-items-center rounded-md bg-gradient-to-br from-sky-300 to-blue-600 text-white shadow-md">
-                    <Folder size={30} />
+                  <div className="grid h-14 w-16 place-items-center rounded-md bg-gradient-to-br from-sky-300 to-blue-600 text-white shadow-md sm:h-16 sm:w-20">
+                    <Folder size={26} className="sm:[&>svg]:h-7 sm:[&>svg]:w-7" />
                   </div>
-                  <div className="mt-1 line-clamp-2 text-center text-xs text-white/90">
+                  <div className="mt-1 line-clamp-2 text-center text-[11px] text-white/90 sm:text-xs">
                     {p.name}
                   </div>
                 </button>

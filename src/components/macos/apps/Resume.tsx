@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Download, ZoomIn, ZoomOut, ChevronLeft, ChevronRight } from "lucide-react";
 import { profile, experience, education, skills, certifications } from "../data";
+import { useIsMobile } from "../../../hooks/use-mobile";
 
 const pages = [ResumePage1, ResumePage2];
 
 export function ResumeApp() {
-  const [zoom, setZoom] = useState(1);
+  const isMobile = useIsMobile();
+  const [zoom, setZoom] = useState(isMobile ? 0.55 : 1);
   const [page, setPage] = useState(0);
   const PageComp = pages[page];
   return (
