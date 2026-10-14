@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform, type MotionValue } from "framer-motion";
 import { useRef } from "react";
-import { FolderKanban, Terminal as TerminalIcon, Globe, FileText } from "lucide-react";
+import { FolderKanban, Terminal as TerminalIcon, Globe, FileText, BookOpen } from "lucide-react";
 import { useWM } from "./WindowManager";
 import { profile } from "./data";
 import type { AppId } from "./types";
@@ -27,6 +27,12 @@ const items: DockItem[] = [
   },
   { id: "safari", label: "Safari", icon: <Globe />, gradient: "from-cyan-300 to-blue-500" },
   { id: "resume", label: "Resume", icon: <FileText />, gradient: "from-slate-100 to-slate-300" },
+  {
+    id: "research",
+    label: "Research",
+    icon: <BookOpen />,
+    gradient: "from-indigo-400 to-purple-600",
+  },
 ];
 
 export function Dock() {
