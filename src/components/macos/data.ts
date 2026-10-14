@@ -185,6 +185,21 @@ export const research = {
   venue: "ICTIS 2026, Bangkok",
   publisher: "Springer LNNS — Accepted",
   video: "https://youtu.be/IW5Znqj4Qt8",
-  abstract:
-    "ZKP-Guard proposes a lightweight zero-knowledge framework to verify authenticity and ownership of digital images without revealing the underlying pixels or private keys. The system combines perceptual hashing with succinct proofs, enabling downstream verifiers to attest provenance across social, journalistic and forensic pipelines with minimal computational overhead.",
+  paper: "https://drive.google.com/file/d/1Ej6GHmWtNymk6myG5HJPgqvQd2GTerxf/view?usp=sharing",
+  overview:
+    "To combat deepfakes, metadata tampering, and the high computational latency of ZK-SNARKs, ZKP-Guard introduces a lightweight Dual-Lock cryptographic architecture implemented in Python (pyecc).",
+  locks: [
+    {
+      name: "Lock 1 — Authenticity",
+      detail:
+        "Establishes tamper-proof camera origin by hashing images via SHA-256 and signing them using ECDSA (secp256k1).",
+    },
+    {
+      name: "Lock 2 — Privacy-Preserving Ownership",
+      detail:
+        "Combines Pedersen Commitments with non-interactive Schnorr Zero-Knowledge Proofs (ZKP), enabling owners to prove possession of the original image without revealing it.",
+    },
+  ],
+  results:
+    "Tested across 500 high-resolution images against cropping, noise, rotation, scaling, brightness, bit-flipping, and JPEG compression attacks, ZKP-Guard achieved 100% detection accuracy (F1-score: 1.0), a compact 0.35 KB proof size, and an ultra-fast 0.13-second total latency (~5,800× faster proof generation than PhotoProof).",
 };

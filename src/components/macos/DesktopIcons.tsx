@@ -1,4 +1,4 @@
-import { FolderKanban, HardDrive, Globe2, Users, FileText } from "lucide-react";
+import { FolderKanban, HardDrive, Globe2, Users, FileText, BookOpen } from "lucide-react";
 import { useWM } from "./WindowManager";
 import { profile } from "./data";
 import type { AppId } from "./types";
@@ -39,6 +39,12 @@ export function DesktopIcons() {
           title: "Resume — Safari",
           payload: { url: profile.links.resume },
         }),
+    },
+    {
+      label: "Research",
+      icon: <BookOpen />,
+      color: "from-indigo-400 to-purple-600",
+      onOpen: () => open("research" as AppId),
     },
     {
       label: "old-portfolio",
