@@ -10,7 +10,7 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/noor-999b9b202/",
     leetcode: "https://leetcode.com/u/NG1rdhar_07/",
     twitter: "https://x.com/NoorGirdhar786",
-    resume: "https://drive.google.com/file/d/1t8aBsuVM91HmVTyEmh54ETRkIuWwQMpw/view?usp=sharing",
+    resume: "https://drive.google.com/file/d/150Tpwfc6OqcUXeDoxCKFy6azPMuUva5K/view?usp=sharing",
   },
 };
 
