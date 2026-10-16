@@ -84,7 +84,7 @@ function ResumePage1() {
         <div key={e.org} className="mt-2">
           <div className="flex justify-between text-sm font-medium">
             <span>
-              {e.role} — {e.org}
+              {e.role} - {e.org}
             </span>
             <span className="text-neutral-500">{e.period}</span>
           </div>
@@ -102,7 +102,7 @@ function ResumePage1() {
       {education.map((e) => (
         <div key={e.school} className="mt-1 flex justify-between text-sm">
           <span>
-            {e.school} — <span className="text-neutral-600">{e.degree}</span>
+            {e.school} - <span className="text-neutral-600">{e.degree}</span>
           </span>
           <span className="text-neutral-500">
             {e.period} · {e.detail}
@@ -128,7 +128,7 @@ function ResumePage2() {
       <ul className="mt-2 list-disc pl-4 text-sm text-neutral-800">
         {certifications.map((c) => (
           <li key={c.title}>
-            {c.title} — {c.issuer} ({c.year})
+            {c.title} - {c.issuer} ({c.year})
           </li>
         ))}
       </ul>

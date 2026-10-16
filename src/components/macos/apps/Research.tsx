@@ -7,7 +7,7 @@ export function ResearchApp() {
 
   const openPaper = () =>
     open("safari", {
-      title: "ZKP-Guard Research Paper — Safari",
+      title: "ZKP-Guard Research Paper - Safari",
       payload: { url: research.paper },
     });
 

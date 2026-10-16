@@ -60,7 +60,7 @@ export function Spotlight({ open, onClose }: { open: boolean; onClose: () => voi
       },
       {
         id: "safari",
-        label: "Safari — Links",
+        label: "Safari - Links",
         category: "Application",
         appId: "safari",
         icon: <Globe size={16} />,
@@ -74,7 +74,7 @@ export function Spotlight({ open, onClose }: { open: boolean; onClose: () => voi
       },
       {
         id: "research",
-        label: "ZKP-Guard — Research Paper",
+        label: "ZKP-Guard - Research Paper",
         category: "Document",
         appId: "research",
         icon: <BookOpenText size={16} />,

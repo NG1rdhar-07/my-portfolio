@@ -2,9 +2,9 @@ export const profile = {
   name: "Noor",
   title: "Software Engineer · AI Developer",
   tagline:
-    "Final-year B.Tech at LNMIIT Jaipur — building user-centric software, GenAI apps, and scalable systems.",
+    "Final-year B.Tech at LNMIIT Jaipur - building user-centric software, GenAI apps, and scalable systems.",
   location: "Jaipur, India",
-  email: "noor@example.com",
+  email: "noorgirdhar705@gmail.com",
   links: {
     github: "https://github.com/NG1rdhar-07",
     linkedin: "https://www.linkedin.com/in/noor-999b9b202/",
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     tagline: "Causal video reasoning over 5,440 videos.",
     stack: ["Python", "HuggingFace", "NetworkX", "CUDA", "Bash"],
     features: [
-      "Multimodal reasoning pipeline processing 5,440 raw videos and 34K QA pairs — scaled graph data 10x to eliminate severe overfitting",
+      "Multimodal reasoning pipeline processing 5,440 raw videos and 34K QA pairs - scaled graph data 10x to eliminate severe overfitting",
       "Optimized DGX cluster compute using 4-bit NF4 quantization on a 7B model, eliminating VRAM OOM crashes",
       "Deterministic anti-hallucination gate via DeBERTa-v3 NLI to cross-verify visual entities prior to GNN execution",
     ],
@@ -96,7 +96,7 @@ export const experience: ExperienceItem[] = [
   {
     role: "Web Development Intern",
     org: "Indicore Infocomm Pvt. Ltd.",
-    period: "May 2025 — July 2025",
+    period: "May 2025 - July 2025",
     stack: "React.js · SQL · REST APIs · Git & GitHub · Agile",
     href: "https://drive.google.com/file/d/1xQWdJSS5W2HjlXMHPYuExzkWTlxNLXtw/view?usp=sharing",
     points: [
@@ -108,7 +108,7 @@ export const experience: ExperienceItem[] = [
   {
     role: "Coordinator",
     org: "The LNMIIT Alumni Association",
-    period: "Oct 2025 — Apr 2026",
+    period: "Oct 2025 - Apr 2026",
     points: [
       "Planned and executed major events with the coordinator team, from planning to on-ground logistics.",
       "Facilitated alumni talks and career mentorship sessions for students.",
@@ -139,8 +139,8 @@ export const education = [
   {
     school: "The LNM Institute of Information Technology, Jaipur",
     degree: "B.Tech, Communication & Computer Engineering",
-    period: "2023 — 2027",
-    detail: "CGPA: 7.93 / 10",
+    period: "2023 - 2027",
+    detail: "CGPA: 8.04 / 10",
   },
   {
     school: "Daffodils Public School, Fatehabad",
@@ -171,7 +171,7 @@ export const certifications: Certification[] = [
     url: "https://drive.google.com/file/d/1rR1Fk_OBSzq0g8j_qOUYVAC7Oqw68ujj/view?usp=sharing",
   },
   {
-    title: "ZKP-Guard — Certificate",
+    title: "ZKP-Guard - Certificate",
     issuer: "ICTIS 2026",
     year: "2026",
     url: "https://drive.google.com/file/d/1mPR5l3qOc4w10q-6sZzd4yKe3SBNIoAu/view?usp=sharing",
@@ -183,19 +183,19 @@ export const research = {
     "ZKP-Guard: A Lightweight Framework for Verifying Digital Image Authenticity and Ownership",
   authors: ["Noor", "S. Mukherjee", "S. S. Yadav"],
   venue: "ICTIS 2026, Bangkok",
-  publisher: "Springer LNNS — Accepted",
+  publisher: "Springer LNNS - Accepted",
   video: "https://youtu.be/IW5Znqj4Qt8",
   paper: "https://drive.google.com/file/d/1Ej6GHmWtNymk6myG5HJPgqvQd2GTerxf/view?usp=sharing",
   overview:
     "To combat deepfakes, metadata tampering, and the high computational latency of ZK-SNARKs, ZKP-Guard introduces a lightweight Dual-Lock cryptographic architecture implemented in Python (pyecc).",
   locks: [
     {
-      name: "Lock 1 — Authenticity",
+      name: "Lock 1 - Authenticity",
       detail:
         "Establishes tamper-proof camera origin by hashing images via SHA-256 and signing them using ECDSA (secp256k1).",
     },
     {
-      name: "Lock 2 — Privacy-Preserving Ownership",
+      name: "Lock 2 - Privacy-Preserving Ownership",
       detail:
         "Combines Pedersen Commitments with non-interactive Schnorr Zero-Knowledge Proofs (ZKP), enabling owners to prove possession of the original image without revealing it.",
     },

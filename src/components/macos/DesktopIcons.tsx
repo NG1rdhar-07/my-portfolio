@@ -28,7 +28,7 @@ export function DesktopIcons() {
       color: "from-emerald-400 to-teal-600",
       onOpen: () =>
         open("safari" as AppId, {
-          title: "Connect — Safari",
+          title: "Connect - Safari",
           payload: { url: "start://noor" },
         }),
     },
@@ -38,7 +38,7 @@ export function DesktopIcons() {
       color: "from-rose-400 to-red-600",
       onOpen: () =>
         open("safari" as AppId, {
-          title: "Resume — Safari",
+          title: "Resume - Safari",
           payload: { url: profile.links.resume },
         }),
     },
@@ -54,7 +54,7 @@ export function DesktopIcons() {
       color: "from-fuchsia-400 to-purple-600",
       onOpen: () =>
         open("safari" as AppId, {
-          title: "old-portfolio — Safari",
+          title: "old-portfolio - Safari",
           payload: { url: "https://the-noor-node.vercel.app/" },
         }),
     },

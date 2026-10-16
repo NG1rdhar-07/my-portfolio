@@ -43,7 +43,7 @@ export function MailApp() {
         />
         <div className="mt-3 flex items-center justify-between">
           <span className="text-xs text-white/50">
-            {sent ? "Draft ready — this is a demo mailbox." : "This is a portfolio mail UI."}
+            {sent ? "Draft ready - this is a demo mailbox." : "This is a portfolio mail UI."}
           </span>
           <button
             type="submit"

@@ -5,9 +5,11 @@ export function AboutApp() {
     <div className="flex h-full flex-col overflow-hidden sm:flex-row">
       <aside className="w-full shrink-0 border-b border-white/10 bg-black/20 p-3 sm:w-52 sm:border-b-0 sm:border-r sm:p-4">
         <div className="flex items-center gap-3 sm:block">
-          <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-gradient-to-br from-indigo-400 to-fuchsia-500 text-2xl font-semibold text-white shadow-lg sm:mx-auto sm:h-24 sm:w-24 sm:text-3xl">
-            N
-          </div>
+          <img
+            src="/noor_image.jpg"
+            alt={profile.name}
+            className="h-14 w-14 shrink-0 rounded-full object-cover object-top shadow-lg ring-2 ring-white/20 sm:mx-auto sm:h-24 sm:w-24"
+          />
           <div className="sm:mt-3 sm:text-center">
             <div className="text-base font-semibold">{profile.name}</div>
             <div className="text-xs text-white/60">{profile.title}</div>
@@ -116,7 +118,7 @@ export function AboutApp() {
           {certifications.map((c) => (
             <li key={c.title}>
               <a href={c.url} target="_blank" rel="noreferrer" className="hover:underline">
-                {c.title} —{" "}
+                {c.title} -{" "}
                 <span className="text-white/60">
                   {c.issuer} · {c.year}
                 </span>

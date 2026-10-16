@@ -61,7 +61,7 @@ export function Dock() {
             onClick={() => {
               if (it.id === "resume") {
                 open("safari", {
-                  title: "Resume — Safari",
+                  title: "Resume - Safari",
                   payload: { url: profile.links.resume },
                 });
                 return;

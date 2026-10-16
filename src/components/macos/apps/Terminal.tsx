@@ -6,17 +6,17 @@ type Line = { kind: "in" | "out"; text: string };
 
 const HELP = [
   "Available commands:",
-  "  whoami        — who is Noor",
-  "  about         — short bio",
-  "  skills        — tech stack",
-  "  projects      — list projects",
-  "  experience    — work history",
-  "  research      — published paper",
-  "  contact       — reach out",
-  "  resume        — open resume",
-  "  open <app>    — about|projects|safari|resume|mail|research",
-  "  clear         — clear screen",
-  "  help          — this message",
+  "  whoami        - who is Noor",
+  "  about         - short bio",
+  "  skills        - tech stack",
+  "  projects      - list projects",
+  "  experience    - work history",
+  "  research      - published paper",
+  "  contact       - reach out",
+  "  resume        - open resume",
+  "  open <app>    - about|projects|safari|resume|mail|research",
+  "  clear         - clear screen",
+  "  help          - this message",
 ];
 
 export function TerminalApp() {
@@ -53,7 +53,7 @@ export function TerminalApp() {
         for (const [g, list] of Object.entries(skills)) out.push(`${g}: ${list.join(", ")}`);
         break;
       case "projects":
-        projects.forEach((p) => out.push(`• ${p.name} — ${p.tagline}`));
+        projects.forEach((p) => out.push(`• ${p.name} - ${p.tagline}`));
         out.push("", 'Run "open projects" to explore in Finder.');
         break;
       case "experience":
@@ -62,7 +62,7 @@ export function TerminalApp() {
       case "research":
         out.push(
           research.title,
-          `${research.authors.join(", ")} — ${research.venue}`,
+          `${research.authors.join(", ")} - ${research.venue}`,
           research.publisher,
         );
         break;

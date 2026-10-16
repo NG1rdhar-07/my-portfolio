@@ -28,12 +28,12 @@ let idCounter = 0;
 
 const DEFAULT_SIZES: Record<AppId, { width: number; height: number; title: string }> = {
   about: { width: 780, height: 520, title: "About" },
-  projects: { width: 860, height: 560, title: "Projects — Finder" },
-  terminal: { width: 720, height: 460, title: "noor — zsh" },
+  projects: { width: 860, height: 560, title: "Projects - Finder" },
+  terminal: { width: 720, height: 460, title: "noor - zsh" },
   safari: { width: 900, height: 600, title: "Safari" },
-  resume: { width: 720, height: 640, title: "Resume.pdf — Preview" },
-  mail: { width: 640, height: 500, title: "Contact — Mail" },
-  research: { width: 780, height: 620, title: "ZKP-Guard.pdf — Preview" },
+  resume: { width: 720, height: 640, title: "Resume.pdf - Preview" },
+  mail: { width: 640, height: 500, title: "Contact - Mail" },
+  research: { width: 780, height: 620, title: "ZKP-Guard.pdf - Preview" },
   video: { width: 720, height: 460, title: "QuickTime Player" },
 };
 

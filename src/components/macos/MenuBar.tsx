@@ -33,13 +33,13 @@ export function MenuBar({ onSpotlight }: { onSpotlight?: () => void }) {
   const menuItems: { label: string; onClick: () => void }[] = [
     {
       label: "Resume",
-      onClick: () => launch("safari", { url: profile.links.resume }, "Resume — Safari"),
+      onClick: () => launch("safari", { url: profile.links.resume }, "Resume - Safari"),
     },
     { label: "Terminal", onClick: () => launch("terminal") },
     {
       label: "Old Portfolio",
       onClick: () =>
-        launch("safari", { url: "https://the-noor-node.vercel.app/" }, "old-portfolio — Safari"),
+        launch("safari", { url: "https://the-noor-node.vercel.app/" }, "old-portfolio - Safari"),
     },
   ];
 
